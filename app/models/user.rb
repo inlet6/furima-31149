@@ -8,8 +8,10 @@ class User < ApplicationRecord
     validates :nick_name
     validates :email, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
     validates :encrypted_password, confirmation: true, length: { minimum: 6 }
-    validates :first_name
-    validates :family_name
+    with_options fomat: { with: [ぁ-んァ-ン一-龥] }
+      validates :first_name
+      validates :family_name
+    end
     with_options format: { with: [ァ-ン] }
       validates :first_name_kana
       validates :family_name_kana
