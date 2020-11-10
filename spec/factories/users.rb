@@ -9,6 +9,6 @@ FactoryBot.define do
     family_name           {gimei.family.kanji}
     first_name_kana       {gimei.first.katakana}
     family_name_kana      {gimei.family.katakana}
-    birthday              {1,1,1}
+    birthday              {Faker::Date.between_except(from: 50.year.ago, to: 1.year.from_now, excepted: Date.today)}
   end
 end
