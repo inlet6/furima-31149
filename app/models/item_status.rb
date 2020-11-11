@@ -5,4 +5,6 @@ class ItemStatus < ActiveHash::Base
     { id: 3, name: '未使用に近い'}
     { id: 4, name: '目立ったキズ、汚れなし'}
 ]
+include ActiveHash::Associations
+  has_many :items
 end

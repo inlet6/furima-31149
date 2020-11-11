@@ -5,4 +5,7 @@ class Category < ActiveHash::Base
     { id: 3, name: 'RPG'},
     { id: 4, name: 'FPS'}
 ]
+
+include ActiveHash::Associations
+  has_many :items
 end
