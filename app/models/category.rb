@@ -1,2 +1,8 @@
-class Category < ApplicationRecord
+class Category < ActiveHash::Base
+  self.data = [
+    { id: 1, name: '--' },
+    { id: 2, name: 'ACT'},
+    { id: 3, name: 'RPG'},
+    { id: 4, name: 'FPS'}
+]
 end
