@@ -9,6 +9,11 @@ class ItemsController < ApplicationController
 
   def create
     Item.create(item_params)
+    if current_user.created_at
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
