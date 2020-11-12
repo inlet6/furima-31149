@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_091325) do
     t.string "name", null: false
     t.text "details", null: false
     t.integer "category_id", null: false
-    t.integer "item_statas_id", null: false
+    t.integer "item_status_id", null: false
     t.integer "shipping_burden_id", null: false
     t.integer "prefecture_id", null: false
     t.integer "days_to_ship_id", null: false
