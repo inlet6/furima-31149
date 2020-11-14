@@ -15,7 +15,7 @@ class Item < ApplicationRecord
       validates :prefecture_id
       validates :days_to_ship_id
     end
-    validates :price, numericality: { greater_than_or_equal_to: 300 }, numericality: { less_than_or_equal_to: 9999999 }
+    validates :price, inclusion: { in: 300..9999999 }
     validates :user
   end
 end
