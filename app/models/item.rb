@@ -16,6 +16,6 @@ class Item < ApplicationRecord
       validates :days_to_ship_id
     end
     validates :price, inclusion: { in: 300..9_999_999 }
-    validates :user
+    
   end
 end

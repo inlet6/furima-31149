@@ -54,6 +54,13 @@ describe Item do
     end
 
     context '商品出品がうまくいかない時' do
+      it 'imageが空だと登録できない' do
+        @item.name = 'a'
+        @item.details = 'a'
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
+      end
       it 'nameが空だと登録できない' do
         @item.name = nil
         @item.details = 'a'
