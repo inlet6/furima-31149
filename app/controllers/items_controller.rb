@@ -29,6 +29,10 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
+    if @item.valid?
+      @item.save
+      redirect_to item_path(@item.id)
+    end
   end
 
   private
