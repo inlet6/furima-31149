@@ -1,19 +1,18 @@
 class BuyInfosController < ApplicationController
-  before_action :set_item, only: [ :index ]
+  before_action :set_item, only: [:index]
 
   def index
-    @buy_infos = BuyInfo.new
-
+    @buy_info = BuyInfo.new
   end
 
   def create
     @buy_info = BuyInfo.new(buy_info_params)
     if @buy_info.valid?
       @buy_info.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render 'index'
-      
+
     end
   end
 
@@ -28,7 +27,6 @@ class BuyInfosController < ApplicationController
   end
 
   def buy_info_params
-    params.require(:buy_info).permit(:user_id, :item_id, :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :buy_info_id )
+    params.require(:buy_info).permit(:user_id, :item_id, :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :buy_info_id)
   end
-
 end
