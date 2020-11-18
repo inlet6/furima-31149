@@ -2,7 +2,6 @@ class PayForm
   include ActiveModel::Model
   attr_accessor :user, :item, :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :buy_info
 
-  # ここにバリデーションの処理を書く
   with_options presence: true do
     validates :user
     validates :item
