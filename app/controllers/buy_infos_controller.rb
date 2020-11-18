@@ -28,7 +28,7 @@ class BuyInfosController < ApplicationController
   end
 
   def buy_info_params
-    params.require(:buy_info).permit(:user, :item)
+    params.require(:buy_info).permit(:user_id, :item_id, :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :buy_info_id )
   end
 
 end
