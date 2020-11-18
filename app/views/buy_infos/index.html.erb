@@ -27,9 +27,9 @@
       </p>
     </div>
 
-    <%= render 'shared/error_messages', model: @buy_info %>
+    <%= render 'shared/error_messages', model: @pay_form %>
 
-    <%= form_with id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with model:@pay_form, url:item_buy_infos_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
