@@ -9,7 +9,7 @@ class PayForm
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :municipality
     validates :address
-    validates :phone_number
+    validates :phone_number, format: { with: /\A\d{11}\z/ }, length: { maximum: 11 }
     validates :token
   end
 
