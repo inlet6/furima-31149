@@ -5,7 +5,7 @@ class PayForm
   with_options presence: true do
     validates :user_id
     validates :item_id
-    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
+    validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/ }
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :municipality
     validates :address
@@ -14,8 +14,7 @@ class PayForm
   end
 
   def save
-    buy_info = BuyInfo.create( user_id: user_id, item_id: item_id )
-    Address.create( postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_number: phone_number, buy_info_id: buy_info.id )
-    
+    buy_info = BuyInfo.create(user_id: user_id, item_id: item_id)
+    Address.create(postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality, address: address, building_name: building_name, phone_number: phone_number, buy_info_id: buy_info.id)
   end
 end

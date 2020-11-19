@@ -9,7 +9,7 @@ describe PayForm do
   describe '商品購入' do
     context '商品が購入できる時' do
       it 'billding_name以外の項目が存在すれば購入できる' do
-      expect(@pay_form).to be_valid
+        expect(@pay_form).to be_valid
       end
     end
 
@@ -20,19 +20,19 @@ describe PayForm do
         expect(@pay_form.errors.full_messages).to include("Postal code can't be blank")
       end
       it 'postal_codeはハイフン(123-4567)がなくては登録できない' do
-        @pay_form.postal_code = "1234567"
+        @pay_form.postal_code = '1234567'
         @pay_form.valid?
-        expect(@pay_form.errors.full_messages).to include("Postal code is invalid")
+        expect(@pay_form.errors.full_messages).to include('Postal code is invalid')
       end
       it 'prefecture_idが空だと登録できない' do
         @pay_form.prefecture_id = nil
         @pay_form.valid?
-        expect(@pay_form.errors.full_messages).to include("Prefecture can't be blank", "Prefecture is not a number")
+        expect(@pay_form.errors.full_messages).to include("Prefecture can't be blank", 'Prefecture is not a number')
       end
       it 'prefecture_idが1だと登録できない' do
         @pay_form.prefecture_id = 1
         @pay_form.valid?
-        expect(@pay_form.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@pay_form.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it 'municipalityが空だと登録できない' do
         @pay_form.municipality = nil
@@ -47,12 +47,12 @@ describe PayForm do
       it 'phone_numberが空だと登録できない' do
         @pay_form.phone_number = nil
         @pay_form.valid?
-        expect(@pay_form.errors.full_messages).to include("Phone number is invalid")
+        expect(@pay_form.errors.full_messages).to include('Phone number is invalid')
       end
       it 'phone_numberが11桁の数列でないと登録できない' do
-        @pay_form.phone_number = "1234567890"
+        @pay_form.phone_number = '1234567890'
         @pay_form.valid?
-        expect(@pay_form.errors.full_messages).to include("Phone number is invalid")
+        expect(@pay_form.errors.full_messages).to include('Phone number is invalid')
       end
       it 'tokenが空だと登録できない' do
         @pay_form.token = nil
