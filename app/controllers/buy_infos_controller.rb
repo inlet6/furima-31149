@@ -3,7 +3,8 @@ class BuyInfosController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   def index
-    if @item.user_id == current_user.id || @item != nil
+
+    if @item.user_id == current_user.id || @item.buy_info != nil
     redirect_to root_path
     end
       @pay_form = PayForm.new
