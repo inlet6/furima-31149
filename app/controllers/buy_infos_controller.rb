@@ -1,8 +1,12 @@
 class BuyInfosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
 
   def index
-    @pay_form = PayForm.new
+    if @item.user_id == current_user.id || @item != nil
+    redirect_to root_path
+    end
+      @pay_form = PayForm.new
   end
 
   def create
